@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			.page{
+				width: 500px;
+				margin: 50px auto;
+			}
+			.page>li{
+				width: 100%;
+				height: 30px;
+				margin: 10px 0;
+			}
+			.btn{
+				display: block;
+				width: 500px;
+				margin: 50px auto 100px;
+			}
+			.btn>li{
+				width: 28px;
+				height: 28px;
+				margin: 0 10px;
+				text-align: center;
+				line-height: 28px;
+				font-size: 16px;
+				float: left;
+				border: 1px solid #aaa;
+				cursor: pointer;
+			}
+			.btn>.checked{
+				background: #d2961e;
+				color: #fff;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var txt = $('#txt');
+				var sure = $('#sure');
+				var page = $('.page');
+				var btn = $('.btn');
+				var showNum = 7;
+				showData();
+				function showData(){//封装显示数据的函数
+					page.html('');
+					btn.html('');
+					//第一步动态添加数据
+					for(var i = 1; i <= showNum; i ++){
+						page.append("<li>"+i+"</li>");
+					}
+					//第二步，根据数据来动态创建按钮
+					for(var i = 1; i <=Math.ceil(100/showNum);i ++){
+						var btns = $("<li>"+i+"</li>");
+						btns.click(function(){
+							$(this).addClass('checked').siblings().removeClass('checked');
+							var thisIndex = $(this).index();
+							//根据索引值来确定page里面的li的值；
+							page.children().map(function(){
+								$(this).html((thisIndex*showNum+1)+$(this).index());
+								//$(this)代表每个li,html代表显示的内容，thisIndex代表按钮的索引
+								//例如，当前按钮是第二个，那么thisIndex为1，showNum为10
+								//thisIndex*showNum+1=1*10+1=11;
+								//然后11+当前li的索引值，就是他们的内容；
+								//例如第一个li，索引值为0，那么11+0=11，就是第二组li的第一个的内容
+								if($(this).html()>100){
+									$(this).empty();
+								}
+							});
+						});
+						if(i==1){
+							btns.addClass('checked');
+						}
+						btn.append(btns)
+					}
+				}
+				sure.click(function(){
+					showNum = txt.val();
+					showData();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt" />
+		<button id="sure">确定</button>
+		<ul class="page"></ul>
+		<ul class="btn"></ul>
+	</body>
+</html>

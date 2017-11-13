@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 800px;
+				margin: 50px auto 0;
+				border: 10px solid red;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var box = $('.box');
+				var btn = $('#btn');
+				
+				//1.内部插入元素，添加子元素：append()
+				//给父元素添加子标签
+				//box.append('<i>这是一个I标签</i>');
+				
+				//appendTo();
+				//把子标签添加到父元素；
+				//$('<i>这是第二个I标签</i>').appendTo(box);
+				
+				//向前添加
+				//prepend()
+				//box.prepend('<i>这又是一个I标签</i>');
+				
+				//prependTo();
+				//$('<i>这是第四个I标签</i>').prependTo(box)
+				
+				
+				//2.外部插入元素，插入的内容作为兄弟节点存在：before();
+				//box.before("<h1>这是一个before插入的H1标签</h1>")
+				
+				//insetbefore()；
+				//$('<h1>这是第二个H1标签</h1>').insertBefore(box);
+				
+				//往后面添加兄弟节点：after();
+				//box.after('<h1>这是after插入的H1</h1>')
+				
+				//insetAfter()；
+				//$('<h1>这个是insetAfter插入的</h1>').insertAfter(box);
+				
+				//3.包裹
+				//wrap()为JQ对象中的每一个对象单独添加一个父级；
+				//box.wrap("<div style='background: aqua;'></div>")
+				
+				//移出父级 unwrap();括号里面不能传参
+				//box.unwrap();
+				
+				//wrapAll 为所有JQ对象添加一个公共的父级元素
+				//$('p').wrap("<div class='fater' style='border: 1px solid red;'></div>")
+				
+				//wrapInner() 给自己的子元素重新添加父级，然后自己的位置提升；
+				//box.wrapInner("<div class='father' style='border: 10px solid aqua;'></div>");
+				
+				//4.替换
+				//replaceWith()将当前对象替换成制定内容；
+				//$('h4').replaceWith("<i>这是替换后的标签</i>")
+				
+				//replaceAll()将所有JQ对象替换成制定元素
+				//$("<i>这是替换后的标签</i>").replaceAll("p");
+				
+				
+				//5.删除
+				//empty()清空子元素，包括文本、标签、注释等所有子元素
+				//box.empty();
+				
+				//remove()移出制定对象，包括对象绑定的事件、属性、全部移出，且无法恢复；
+				//detach()移除指定对象，对象绑定的事件、属性可以恢复；
+				/*box.on('click',function(){
+					alert('s')
+				})
+				
+				var b=box;
+				
+				btn.click(function(){
+					//box.remove();
+					box.detach();
+					$('body').append(b)
+				});*/
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">button</button>
+		<div class="box">
+			<!--我是一个BOX的注释-->
+			<p>这是一个P标签</p>
+			<p>这是一个P标签</p>
+			<p>这是一个P标签</p>
+			<h4>这是一个h4标签</h4>
+		</div>
+		<div class="box2">
+			第二个div
+		</div>
+		
+		
+	</body>
+</html>

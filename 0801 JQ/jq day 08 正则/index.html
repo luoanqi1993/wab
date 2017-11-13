@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<button>确定</button>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		$('button').click(function(){
+			var v = $('input').val();
+			/*var reg = /\d/;//        \d表示数字的意思
+			var reg1 = /[a-z]/;//    [a-zA-Z]表示因为字母的意思
+			var reg2 = /[A-Z]/;*/
+			/*if(reg.test(v)&&reg1.test(v)&&reg2.test(v)&&v.length==6){//reg.test(xxx)，表示xxx符合我的表达式；
+				alert('可以注册');
+			}else{
+				alert('请使用大写+小写+数字的形式填写密码，长度要求六位数');
+			}*/
+			var reg = /[wzq789]/;
+			var reg1 = /[^wzq]/;
+			var reg2 = /[1-9]/;
+			var reg3 = /./;
+			var reg4 = /^5/;
+			var reg5 = /\d{6}/;//必须要求有6位
+			var reg6 = /^\d{4,6}$/;//要求最低长度四位，最多六位
+			var reg7 = /\d*/;//不管存不存在，存在多少次，都是true
+			var reg8 = /^\d?$/;//要么没有，要么只有一次
+			var reg9 = /\d+/;//必须存在，次数无限；、
+			var phone = /^[34578]\d{9}$/;
+			/*zhangsan-001@163.com*/
+			/*
+			 26个大小写字符
+			 数字
+			 下划线_
+			 中划线-
+			 
+			 * */
+			var e = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+			console.log(e.test(v));
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//		var met1=false,met2=false;
+/*var v = $('input').val();
+			for(var i = 0; i < v.length; i ++){
+				var s = v.charAt(i);
+				if(s>='a'&&s<='z'){
+					met1=true;
+				}
+			}
+			for(var i = 0; i < v.length; i ++){
+				var s = v.charAt(i);
+				if(s>=0&&s<=9){
+					met2=true;
+				}
+			}
+			
+			
+			if(met1==true&&met2==true){
+				alert('密码同时包含数字和字母，可以注册');
+			}else{
+				alert('请使用小写字母+数字的形式填写密码');
+				met1=false,met2=false;
+			}*/
+	</script>
+</html>

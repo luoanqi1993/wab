@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>我是一个p标签</p>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script src="heighLight/heighLight.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		$.fn.heighLight.format = function(str){
+			return "<strong>"+str+"</strong>"
+		}
+		$("p").heighLight({"background":"red","color":"blue"});
+
+	</script>
+</html>

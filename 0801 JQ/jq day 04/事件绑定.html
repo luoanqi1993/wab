@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			button{
+				width: 150px;
+				height: 40px;
+				font-size: 20px;
+			}
+			ul{
+				width: 500px;
+				border: 1px solid #AAAAAA;
+				padding: 10px;
+				list-style: none;
+			}
+			.ds{
+				width: 500px;
+				height: 300px;
+				background-color: #DEB887;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				//事件的绑定：
+				//简单的写法：
+				/*$('#btn').click(function(){
+					alert('s')
+				});*/
+				//通过on方法，把他们扩在了一起，就相当于把click和function绑定在了一起
+				/*$('#btn').on('click',{foo:'a'},function(event){
+					alert(event.data.foo)
+				});*/
+				//写代码，多用事件的绑定，少直接用click，事件的绑定可以加快运行速度，减少资源消耗
+				//指向元素的事件绑定
+				/*$(document).on('click','li',function(){
+					alert('s')
+				})*/
+				//事件的解绑
+				/*$('#btn').on('click',function(){
+					alert('s')
+				});
+				$('#btn').on('click',function(){
+					alert('d')
+				});
+				$('#btn').off('click')*/
+				
+				//jq事件绑定的命名空间
+				/*$('#btn').on('click.adaadasdas',function(){
+					alert('a');
+				});
+				
+				$('#btn').on('click.dgdfgdfg',function(){
+					alert('b');
+				});
+				
+				$('#btn').off('click.adaadasdas')*/
+				//on事件，是在jq 1.7版本之后才出现的新东西；
+				//在1.7之前，我们都是用的bind来绑定事件;
+				//1.7以后，出现了on,和bing效果完全一致，效率更好，所以就彻底替代了bind；
+				
+				//on可以一次绑定多个事件；
+				/*$('#btn').on('click mouseenter',function(){
+					alert('s');
+				})*/
+				
+				
+				//事件的委托
+				//jq里面事件的委托：将事件绑定在上一级元素上面，通过上一级元素来监听事件的触发
+				//事件的绑定
+				/*$('.box li').on('click',function(){
+					$('.box2').append($(this).clone())
+				});*/
+				
+				//事件的委托
+				/*$('.box').on('click','li',function(){
+					console.log($(this).html())
+				});*/
+				
+				//一次性事件
+				/*$('button').one('click',function(){
+					alert('s')
+				});*/
+				
+				//trigger()直接执行对象绑定的事件和默认行为
+				/*$('button').click(function(){
+					$('.ds').trigger('click')
+				});*/
+				/*$('.ds').on('click',function(){
+					$(this).css('background','cyan')
+				});*/
+				//triggerHandler仅仅只是执行事件，不处罚默认行为
+				/*$('button').click(function(){
+					$('.ds').triggerHandler('click')
+					//和trigger一模一样，唯一的区别，不会执行浏览器的默认行为
+					比如：from的提交
+					比如：浏览器的冒泡行为
+				});*/
+
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">button</button>
+		<div>
+			<ul class="box">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="box2"></ul>
+		</div>
+		<div class="ds"></div>
+		<input id="txt" type="text" style="width: 300px;height: 30px;margin-top: 50px;" />
+		<a href="https://www.baidu.com/">跳转到百度</a>
+	</body>
+</html>

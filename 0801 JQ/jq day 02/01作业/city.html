@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			li{
+				cursor: pointer;
+			}
+			#box{
+				width: 400px;
+				height: 700px;
+				margin: 20px auto;
+				border: 1px solid orange;
+			}
+			h1{
+				height: 50px;
+				background: #ccc;
+				line-height: 50px;
+			}
+			#oul1{height: 60px;}
+			#oul1 li{
+				width: 100px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				float: left;
+			}
+			#oul2{height: 120px;}
+			#oul2 li{
+				width: 50px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				float: left;
+			}
+			#oul3{height: 400px;overflow: auto;}
+			#oul3 li{
+				height: 20px;
+				border-bottom: 1px solid #ccc;
+				padding-left: 3px;
+			}
+		</style>
+		<script type="text/javascript" src="citydata.js" ></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				var uls = document.getElementsByTagName('ul');
+				var p = document.getElementsByTagName('p');
+				var arr=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+				//先获取页面内需要的元素
+				//接着，创建26字母的数组
+				
+				
+				
+				
+				var str = '';
+				for(var i = 0;i<obj.hotList.length;i++){
+					str+="<li>"+obj.hotList[i][0]+"</li>";
+				}
+				uls[0].innerHTML=str;
+				//创建空字符串，遍历热门城市，然后创建和热门城市数量相同的li，接着把热门城市添加到li的内容，最后把li添加到字符串，再把字符串添加到ul里面
+				
+				
+				
+				
+				var str1 = '';
+				for(var i = 0;i<arr.length;i++){
+					str1+="<li>"+arr[i]+"</li>";
+				}
+				uls[1].innerHTML=str1;//创建了26个字母的li，接下来才能获取到
+				//创建空字符串，遍历26字母，然后创建26个li，li的内容等于遍历的字母，最后，都存在字符串str里面，最后添加到第一个ul里面
+				
+				
+				
+				
+				
+				
+				
+				var lis = uls[1].getElementsByTagName('li');
+				for(var i = 0; i < lis.length; i++){
+					lis[i].onclick=function(){
+						p[0].innerHTML=this.innerHTML;
+						var str2='';
+						for(var j =0;j < obj.cityList.length; j++){
+							if(this.innerHTML==obj.cityList[j][1].charAt(0).toUpperCase()){
+								str2+="<li>"+obj.cityList[j][0]+"</li>";
+							}
+						}
+						uls[2].innerHTML=str2;
+					}
+				}
+				//先获取刚才创建的26字母li，然后遍历26字母，然后添加点击事件，最后，给p添加你点击的哪个字母，最后，遍历每个城市
+				//把每个城市的拼音首字母截取出来，转成大写，和点击的字母对比，相同则存在str里面，最后，把str添加到ul里面
+				
+				
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<h1>热门城市</h1>
+			<ul id="oul1"></ul>
+			<h1>更多</h1>
+			<ul id="oul2"></ul>
+			<p style="background: #ccc;"></p>
+			<ul id="oul3"></ul>
+		</div>
+	</body>
+</html>

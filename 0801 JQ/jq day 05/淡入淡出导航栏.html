@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			.main{
+				width: 668px;
+				height: 214px;
+				margin: 50px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.pics{
+				height: 180px;
+				overflow: hidden;
+			}
+			.nav{
+				height: 32px;
+				border: 1px solid #ccc;
+				font-size: 12px;
+				font-weight: bold;
+			}
+			.nav li{
+				float: left;
+				padding: 0px 9px;
+				cursor: pointer;
+				color: #666;
+			}
+			.nav li.on{
+				color: #f60;
+			}
+			.curnav{
+				width: 294px;
+				height: 10px;
+				font-size: 0;
+				background: url(images/notch.png);
+				position: absolute;
+				left: 0;
+				bottom: 34px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var lis = $('.nav>li');
+				var pics = $('.pics>img');
+				lis.click(function(){
+					$(this).addClass('on').siblings('li').removeClass('on');
+					pics.css('display','none');
+					pics.eq($(this).index()).fadeIn(2000);
+					
+					
+					
+					var thisWidt = $(this).innerWidth();
+					var thisLeft = $(this).position().left;
+					var navWidth = $('.curnav').width();
+					
+					
+					var navLeft = thisLeft-((navWidth-thisWidt)/2);
+					$('.curnav').css('left',navLeft)
+				});
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="pics">
+				<img src="images/1.png"/>
+				<img src="images/2.png"/>
+				<img src="images/3.jpg"/>
+				<img src="images/4.png"/>
+				<img src="images/5.jpg"/>
+				<img src="images/6.gif"/>
+				<img src="images/7.jpg"/>
+			</div>
+			<ul class="nav">
+				<li>Instant Video</li>
+				<li class="on">MP3 Store</li>
+				<li>Clound Player</li>
+				<li>Kindle</li>
+				<li>Clound Drive</li>
+				<li>Appstore<br>for Android</li>
+				<li>Digital Games<br>&nbsp;Software</li>
+			</ul>
+			<div class="curnav"></div>
+		</div>
+	</body>
+</html>

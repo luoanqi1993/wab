@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 200px;
+				width: 200px;
+				background: red;
+			}
+			.p{
+				width: 10px;
+				height: 4000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+		<div class="p">
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		$('.box').click(function(){
+			alert('我是jq点击事件')
+		});
+		$('.box').mouseover(function(){
+			alert('我是jq鼠标移入事件')
+		});
+		$('.box').mouseenter(function(){
+			alert('我是jq鼠标enter事件')
+		})
+	</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<input type="text" id="user" />
+		<input type="password" id="pass" />
+		<button id="zc">注册</button>
+		<button id="dl">登录</button>
+		
+	</body>
+	<script type="text/javascript" src="../jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		$('#dl').click(function(){
+			var us = $('#user').val();
+			var ps = $('#pass').val();
+			$.ajax({
+				url:'index.php',
+				type:'post',
+				data:{user:us,pass:ps,flag:1},
+				success:function(data){
+					alert(data);
+				}
+			});
+		});
+		$('#zc').click(function(){
+			var us = $('#user').val();
+			var ps = $('#pass').val();
+			$.ajax({
+				url:'index.php',
+				type:'post',
+				data:{user:us,pass:ps,flag:0},
+				success:function(data){
+					alert(data);
+				}
+			});
+		});
+	</script>
+</html>

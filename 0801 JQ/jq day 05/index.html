@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				margin-top: 50px;
+				width: 500px;
+				height: 400px;
+				background: chocolate;
+				display: none;
+			}
+			button{
+				width: 200px;
+				height: 40px;
+				font-size: 20px;
+				margin: 10px 20px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var btn = $('button');
+				var box = $('.box');
+				
+				//今天  学习JQ基本的效果
+				//1. show() 显示
+				btn.eq(0).click(function(){
+					box.show(5000,function(){
+						alert('我彻底显示完啦')
+					});
+				});
+				
+				//2.hide() 隐藏
+				btn.eq(1).click(function(){
+					box.hide(5000,function(){
+						alert('我彻底隐藏啦')
+					});
+				});
+				
+				//滑动效果
+				//1.slideDown() 向下展开，最终的效果是 去掉 display=none
+				btn.eq(2).click(function(){
+					box.slideDown(5000,function(){
+						alert('sliderDown')
+					});
+				});
+				
+				//2.sliderUp() 向上隐藏，最终效果是 加上 display = none
+				btn.eq(3).click(function(){
+					box.slideUp(5000,function(){
+						alert('sliderUp')
+					});
+				});
+				
+				//3.sliderToggle() 如果你是隐藏，就显示，如果你是显示，就隐藏
+				btn.eq(4).click(function(){
+					box.slideToggle(5000,function(){
+						alert('sliderToggle')
+					});
+				});
+				
+				//淡入淡出 改变透明度
+				//1.fadeIn() 让隐藏的淡出，最终效果去掉display=none;
+				btn.eq(5).click(function(){
+					box.fadeIn(5000,function(){
+						alert('fadeIn')
+					});
+				});
+				
+				//2.fadeOut()让显示的淡入，最终效果添加display=none
+				btn.eq(6).click(function(){
+					box.fadeOut(5000,function(){
+						alert('fadeOut')
+					});
+				});
+				
+				//3.fadeToggle() 显示就隐藏，隐藏就显示
+				btn.eq(8).click(function(){
+					box.fadeToggle(5000,function(){
+						alert('fadeToggle')
+					});
+				});
+				
+				//4.fadeTo()让透明度到制定位置
+				btn.eq(7).click(function(){
+					box.fadeTo(5000,0.5)
+				});
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<!--基本-->
+		<button>show</button>
+		<button>hide</button>
+		<!--滑动-->
+		<button>sliderDown</button>
+		<button>sliderUp</button>
+		<button>sliderToggle</button>
+		<!--淡入淡出-->
+		<button>fadeIn</button>
+		<button>fadeOut</button>
+		<button>fadeTo</button>
+		<button>fedeToggle</button>
+		
+		<button>off</button>
+		
+		<div class="box"></div>
+	</body>
+</html>

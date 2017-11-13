@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>我是一个p标签</p>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		(function($){
+			
+			$.fn.extend({
+				heighLight:function(){
+					var opt = $.extend({},defaults);
+					this.each(function(){
+						var $this = $(this);
+						$this.css({
+							background:opt.background,
+							color:opt.forground
+						});
+					});
+				}
+			});
+			
+			var defaults = {
+				background:"pink",
+				forground:"red"
+			}
+		})($);
+		
+		$("p").heighLight();
+
+	</script>
+</html>

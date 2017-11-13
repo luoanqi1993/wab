@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				width: 150px;
+				float: left;
+				margin-right: 50px;
+			}
+		</style>
+		<script type="text/javascript" src="../jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				//点击注册按钮，把我的注册信息提交到PHP并且保存
+				$('#zc').click(function(){
+					var us = $('#us').val();
+					var pd = $('#pd').val();
+					$.ajax({
+						type:'post',
+						url:'zc.php',
+						data:{
+							us:us,
+							pd:pd,
+							flag:0
+						},
+						success:function(data){
+							alert(data);
+						}
+					});
+				});
+				$('#dl').click(function(){
+					var us1 = $('#us1').val();
+					var pd1 = $('#pd1').val();
+					var us = $('#us').val();
+					var pd = $('#pd').val();
+					$.ajax({
+						type:'post',
+						url:'zc.php',
+						data:{
+							us:us,
+							pd:pd,
+							flag:1
+						},
+						success:function(data){
+							var data = JSON.parse(data)[0];
+							if(us1==data[0]&&pd1==data[1]){
+								alert('登录成功');
+							}else{
+								alert('登陆失败');
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p>adasdadadaasds</p>
+		<ul>
+			<li>
+				<input type="text" id="us" />
+				<input type="password" id="pd" />
+				<button id="zc">注册</button>
+			</li>
+			<li>
+				<input type="text" id="us1" />
+				<input type="password" id="pd1" />
+				<button id="dl">登录</button>
+			</li>
+		</ul>
+	</body>
+</html>

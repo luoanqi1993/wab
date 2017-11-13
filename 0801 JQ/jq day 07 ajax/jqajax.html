@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		/*在JQ中，ajax有三种写法，一种完整写法（post和get都是一样的），第二种，缩写，get和post分为两种*/
+		/*完整写法*/
+		/*$.ajax({
+			type:'get',
+			url:'php/index.php',
+			success:function(data){
+				
+			}
+		});*/
+		/*jq的ajax的get方法*/
+		/*$.get({
+			url:'php/index.php',
+			success:function(data){
+				
+			}
+		});*/
+		/*jq的ajax的post写法*/
+		/*$.post({
+			url:'php/index.php',
+			data:{sj:txt},
+			success:function(data){
+				
+			}
+		});*/
+		/*data设置接受的数据，有一定的风险，所以我们采用dataType*/
+			$.ajax({
+				type:"get",
+				url:'php/data.txt?sj='+Math.random(),
+				dataType:'json',
+				success:function(data){
+					console.log(data)
+				},
+				error:function(data){
+					console.log(data.responseText)
+				}
+			})
+		
+	</script>
+</html>

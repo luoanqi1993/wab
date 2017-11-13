@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="uls" style="position: relative;">
+			<li>1</li>
+			<li>2</li>
+			<li class="lis-3">3</li>
+			<div>div</div>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li class="lis-9" style="position: relative;">9
+				<p class="p">这是li内部p标签</p>
+				<p class="p">这是li内部p标签</p>
+				<h4>这是li内部h4标签</h4>
+				<h4>这是li内部h4标签</h4>
+				<i>这是li内部i标签</i>
+				<i>这是li内部i标签</i>
+			</li>
+			<li>10
+				<h4>这是li内部h4标签</h4>
+				<h4>这是li内部h4标签</h4>
+				<ul>
+					<li>
+						<p class="p">这是一个p标签</p>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d
+				<h4>这是li内部h4标签</h4>
+				<h4>这是li内部h4标签</h4>
+			</li>
+		</ul>
+		<div>
+			<p>这是一个p标签</p>
+		</div>
+		<button id="button">button</button>
+	</body>
+	
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var uls = $('.uls');
+		var lis = $('.uls>li');
+		var btn = $('button');
+		
+		//查找元素
+		//1.查找子元素
+		/*$('.lis-9').children().css('color','red');//所有子元素
+		$('.lis-9').children(':first').css('color','cyan');//第一个子元素
+		$('.lis-9').children('h4').css('color','yellow');//获取子元素某个类型*/
+		
+		/*//2.找最近接的一个指定的父级
+		$('p').closest('li').css('color','red');*/
+		
+		//3.查找后代元素
+		//find()里面跟上查找条件
+		//lis.find('[class]').css('color','red')
+		
+		
+		//4.查找下一个兄弟节点
+		//$('.lis-3').next().css('color','red');
+		
+		
+		//5.查找后面的所有兄弟节点
+		//$('.lis-3').nextAll().css('color','red')
+		
+		//6.查找后面的所有的兄弟节点的指定位置
+		//$('.lis-3').nextUntil('[class]').css('color','red');
+		
+		//7.查找上一个兄弟节点
+		//$('.lis-3').prev().css('color','red')
+		
+		//8.查找前面的所有兄弟节点
+		//$('.lis-3').prevAll().css('color','red')
+		
+		//10.查找父级元素
+		//$('i').parent().css('background','red');
+		
+		//11.查找所有上一级的元素，直到html
+		//$('i').parents().css('background','red');和冒泡事件相似
+		
+		//12.查找所有上一级元素，直到指定元素为止(不包括指定元素)；
+		//$('i').parentsUntil('ul').css('background','red')
+		
+		//13.查找最近的一个带有定位的父级元素
+		//$('i').offsetParent().css('background','red');
+		
+		//14.查找所有兄弟节点,但是不包括自己,可以设置兄弟节点类型;
+		//$('.lis-3').siblings('div').css('color','red')
+		
+		//15.向当前jq对象追加新元素，追加的可以使dom节点，也可以是jq对象，不会改变原来的jq对象，会返回一个新的jq对象
+		/*console.log($('.lis-3').add($('p')))
+		console.log($('.lis-3'))*/
+	</script>
+</html>

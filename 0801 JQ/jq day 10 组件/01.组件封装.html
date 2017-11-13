@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">我是一个div标签</div>
+
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		jQuery.extend({
+			"m":function(a){
+				return a.width()+","+a.height();
+			},
+			
+		});
+		
+		console.log($.m($("#d1")));
+	</script>
+</html>

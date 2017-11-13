@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		console.log(Date.__proto__==Function.prototype);
+		console.log(Math.__proto__==Object.prototype);
+		console.log(Function.prototype.__proto__==Object.prototype);
+		console.log(Object.prototype)
+		console.log(Array.prototype)
+		var num = [1,2,3,]
+		console.log(num.hasOwnProperty())
+		/*虽然Array.prototype没有hasOwnProperty()这个方法，但是他有原型，他的原型是不是__proto__*/
+		//Array()是继承自Object，那么Array.__proto__==Object.prototype
+		/*所以,当你使用num.hasOwnProperty()的时候,JS会先找到他的构造函数(Array)的原型对象Array.prototype,看下他有没有hasOwnProperty()
+		没有的话,一路按照原型对象找下去,下一步就是找Arry.prototype的原型对象,那么就是找Array.prototype.__proto__*/
+	</script>
+</html>

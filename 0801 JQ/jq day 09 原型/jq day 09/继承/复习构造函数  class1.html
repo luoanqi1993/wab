@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			function Xs(name,age,sex){
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+				this.showName = function(){alert('我叫：'+name)}
+			}
+			
+			var wzq = new Xs('吴泽权',18);
+			var wmz = new Xs('王明总',19);
+			
+			console.log(wzq.constructor == Xs);
+			console.log(wmz.constructor == Xs);
+			wzq.showName();
+			wmz.showName();
+			console.log(wzq.showName==wmz.showName)
+			/*很早以前就说过，JS你新建一个东西，就在内存空间中挖了一个坑*/
+			
+			
+			
+		}
+	</script>
+</html>

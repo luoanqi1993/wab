@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				width: 260px;
+				height: 36px;
+				margin: 20px 0 0;
+				padding: 0 10px;
+				font-size: 22px;
+			}
+			button{
+				width: 160px;
+				height: 40px;
+				font-size: 22px;
+			}
+		</style>
+		<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//jquery封装的ajax
+				$('button').click(function(){
+					//点击按钮之后获取输入框的内容
+					var txt = $('#inp').val();
+					//调用ajax，将前台输入的内容提交到后台服务器
+					$.ajax({
+						//请求类型
+						type:"get",
+						//请求的地址
+						url:"php/index.php?sj="+txt,
+						//获取后台传输的数据
+						success:function(data){
+							alert("通过服务器接受到的数据是："+data)
+						}
+					})
+					
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<input id="inp" type="text" />
+		<button>ajax</button>
+	</body>
+</html>

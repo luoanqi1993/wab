@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="ct">
+			我是一只羊
+		</div>
+		<input type="text" name="" id="" value="我是一个input" />
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var box=$('#box');
+		//JQ属性操作
+		//1.添加或者修改属性 attr();
+		//第一种写法：普通写法
+		//如果原来有这个属性，就在原本属性上面修改，如果没有，则添加这个属性
+		/*box.attr('class','tc');
+		box.attr('init','big')*/
+		
+		//第二种写法：连缀写法
+		//box.attr('class','tc').attr('init','big').attr('index','100');
+		
+		
+		//第三种写法：对象写法
+		/*box.attr({//大括号一定不能漏掉
+			'class':'ttl',
+			'init':'small',
+			'ps':'ps'//最后一条不要给逗号了
+		});*/
+		
+		//移出属性 removeAttr;
+		/*box.removeAttr('class');
+		box.removeAttr('class').attr('init','ps');//移除属性和添加属性可以同时使用*/
+		
+		
+		
+		
+		
+		//class操作
+		//添加class addClass
+		/*box.addClass('tc');//在你已经有了的class里面添加，会帮你用空格隔开
+		//移除class  removeClass();
+		box.removeClass('ct').addClass('opp')//添加删除同样可以一起用*/
+		
+		
+		
+		//内容获取与操作
+		var txt=box.html()//获取元素内容
+		console.log(txt)
+		
+		//设置内容
+		/*box.click(function(){
+			box.html('我变成一头牛了')
+		});*/
+		//如果设置的内容带有标签的话，就会对标签进行解析
+		/*box.click(function(){
+			box.html('<ul><li>现在我是一个标签</li></ul>')
+		});*/
+		//text()和html()十分相似，看不出什么区别
+		//那么，他们唯一的区别，就是text（）不会解析标签
+		//html()会解析标签，text()不管里面是什么，都给你输出纯文本；
+		/*box.click(function(){
+			box.text('<ul><li>现在我是一个标签</li></ul>')
+		});*/
+		
+		//获取input:text的值
+		/*box.click(function(){
+			
+			console.log($(':text').val())//获取input的内容值
+		});*/
+		
+		//CSS的样式操作
+		box.click(function(){
+			box.css({
+				'height':'500px',
+				'width':'500px',
+				'background':'red'
+			});
+		});
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

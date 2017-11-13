@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				margin-top: 50px;
+				width: 500px;
+				height: 400px;
+				position: relative;
+				background-color: chocolate;
+				left: 0;
+				top: 0;
+				border: 1px solid darkcyan;
+			}
+			
+			button {
+				width: 200px;
+				height: 40px;
+				font-size: 20px;
+				margin: 10px 20px;
+			}
+		</style>
+	</head>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//animate()自定义动画，自己定义改变的演示，4个参数，运动的样式，运动的时间，缓动方式，回调函数
+			var btn = $('button');
+			var box = $('.box')
+			btn.eq(0).click(function(){
+				/*box.animate({width:200},2000);
+				box.animate({height:200},2000);*/
+				box.animate({height:200,width:200},2000)
+			});
+			
+			//stop()，两个参数，第一个，停止动画，第二个，是否完成当前动画
+			btn.eq(1).click(function(){
+				box.stop(false,true)
+			});
+			//delay()延迟执行动画
+			btn.eq(2).click(function(){
+				box.animate({height:200,width:200},2000)
+				box.delay(5000)
+				box.animate({"border-width":50},2000)
+			});
+			//finish()直接完成动画
+			btn.eq(3).click(function(){
+				box.finish()
+			});
+		});
+	</script>
+
+	<body>
+		<button>animate</button>
+		<button>stop</button>
+		<button>delay</button>
+		<button>finish</button>
+		<div class="box"></div>
+	</body>
+
+</html>

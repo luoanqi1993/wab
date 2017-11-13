@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test li{
+				list-style: none;
+				width: 500px;
+				min-height: 40px;
+				line-height: 40px;
+				margin: 5px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="test">
+			<li>1</li>
+			<li class="lis-2 lis-3">2</li>
+			<li class="lis-2" id="lis3">3</li>
+			<li class="lis-3" ind="index-4">4</li>
+			<li class="lis3" ind="ndex-5">5</li>
+			<li class="lis3-" ind="index-6">6</li>
+			<li ind="data-index-7" ind="ndex-6">7</li>
+			<li class=".lis-8" id="lis-8">8</li>
+			<li class="lis-9">
+				<p>这是另一个p标签</p>
+				<p>这是另一个p标签</p>
+				<p>这是另一个p标签</p>
+				<p>这是另一个p标签</p>
+				<p>这是另一个p标签</p>
+				<h3>这是一个h3标签</h3>
+				<h3>这是一个h3标签</h3>
+				<h3>这是一个h3标签</h3>
+				<h3>这是一个h3标签</h3>
+				<h3>这是一个h3标签</h3>
+				<i>这是i标签文字</i>
+			</li>
+			<li>10</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			//属性选择器
+			/*//1.选择所有具有指定属性的元素
+			//var lis = $('li[class]');只要li带有class属性，就会被选择，不论class是否相同
+			//lis.css('color','cyan')
+			var lis = $('li[id]');
+			lis.css('color','cyan')*/
+			
+			/*//2、根据属性名和属性的值来选择
+			//var lis = $('li[class=lis-2]');先选中所有li，然后选择带有class的li，最后选择class为lis-2的元素
+			//只要li的class名字等于lis-2，就被选择
+			//var lis = $('li[id=lis-8]')
+			var lis = $('li[ind=index-4]')
+			lis.css('color','cyan')*/
+			
+			/*//3.选择所有属性部位某个值的所有元素，没有这个属性也会被选择
+			var lis = $('li[class!=lis-2]');
+			//只要没有class,或者class不等于lis-2，就会被选择
+			lis.css('color','cyan')*/
+			
+			/*//4.选择属性值以某个字符或者字符串开头的元素
+			//只要你的属性值以l开头，不管你后面是啥，都会被选择
+			var lis = $('li[class ^= l]');
+			lis.css('color','cyan')*/
+			
+			/*//5.选择属性值包含指定字符的所有元素
+			//只要你的属性值包含 - ，就会被选择，不论-在什么地方
+			var lis = $('li[class*=-]')
+			lis.css('color','cyan')*/
+			
+			/*//6.选择属性值以指定字符串结尾的元素
+			//只要你的属性值最后一个字符是3，那就选中你，不管你前面有什么东西；
+			var lis = $('li[class$=3]');
+			lis.css('color','cyan')*/
+			
+			/*//7.选择属性吗具有制定值的元素
+			var lis = $('li[class ~= lis-2]');
+			//和第二条的区别，第二条要求必须完全相等，多一个少一个都不行，而这个只要包含在其中就行了；
+			lis.css('color','cyan')*/
+			
+			/*//8. 选择属性值以制定字符串为前缀的元素
+			//属性值以data-开头的属性；
+			var lis = $('li[ind |= data]');
+			lis.css('color','cyan')*/
+			
+			//9.多属性联合选择
+			var lis = $('li[class][id]')
+			//同时具有class属性和id属性的元素就会被选择
+			lis.css('color','cyan')
+			
+			
+			
+			
+			
+		});
+	</script>
+</html>

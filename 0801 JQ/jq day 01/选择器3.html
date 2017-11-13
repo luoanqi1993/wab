@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				/*//表单选择器
+				//可以用属性选择器的方法选择来选择
+				var ipt = $('input[type=text]');
+				ipt.css('height','200px')
+				//这个方法一般般，不咋地，所以我们有单独的，只属于他的input选择方法*/
+				
+				/*//1.选择所有input
+				var ipt = $(':input');
+				ipt.css('height','200px');*/
+				
+				/*//2.选择文本输入框
+				var ipt = $(':text');
+				ipt.css('height','200px');*/
+				
+				/*//3.选择复选框
+				var ipt = $(':checked');
+				ipt.css('height','200px');*/
+				
+				/*//4.单选框
+				var ipt = $(':radio');
+				ipt.css('height','200px');*/
+				
+				/*//5.密码框
+				var ipt = $(':password');
+				ipt.css('height','200px');*/
+				
+				//6.提交按钮
+				//var ipt = $(':submit');
+				
+				//7.普通按钮
+				//var ipt = $(':button')
+				
+				//8.重置按钮
+				//var ipt = $(':reset');
+				
+				//9.文件夹按钮
+				//var ipt = $(':file');
+				
+				//10. 图片
+				//var ipt = (':image')
+				
+				//表单属性选择
+				/*//1.选择可操作性的表单元素
+				var ipt = $(':enabled');
+				ipt.css('height','200px');*/
+				
+				/*//2.选择所有不可操作的表单元素
+				var ipt = $(':disabled');
+				ipt.css('height','200px');*/
+				
+				//3.选择下拉框中被选择的option
+				var ipt = $(':selected');
+				//ipt.css('color','cyan');
+				ipt.css({'height':'100px','width':'200px'})
+				
+				
+				
+				
+				
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<input class="inp" type="text" value="这是文本输入框" />
+		<input id="lis" type="password" placeholder="这是密码框" />
+		<input type="checkbox" />
+		<input type="checkbox" checked="checked" />
+		<input type="radio" checked="checked" />
+		<input type="radio" />
+		<input type="button" value="button" />
+		<input type="reset" value="重置" />
+		<input type="submit" value="提交" />
+		<input type="file" />
+		<input type="image" />
+		
+		<select>
+			<option value="">1</option>
+			<option value="">2</option>
+			<option value="">3</option>
+			<option value="" selected="selected">4</option>
+			<option value="">5</option>
+			<option value="">6</option>
+			<option value="">7</option>
+			<option value="">8</option>
+			<option value="">9</option>
+			<option value="">10</option>
+		</select>
+		
+		<div>
+			<button id="but">button</button>
+		</div>
+
+	</body>
+</html>

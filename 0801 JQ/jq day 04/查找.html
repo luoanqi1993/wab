@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			p{
+				text-align: center;
+				line-height: 2;
+				font-size: 24px;
+				margin-top: 50px;
+			}
+			.box{
+				width: 360px;
+				margin: 10px auto 0;
+			}
+			.txt{
+				width: 400px;
+				height: 30px;
+			}
+			.content>li{
+				width: 300px;
+				height: 30px;
+				font-size: 20px;
+				margin: 10px 0;
+				list-style: none;
+				cursor: pointer;
+			}
+			.content>li:hover{
+				background: bisque;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var arr=['table','td','time','th','area','title','apple'];
+				var txt = $('#txt');
+				var content = $('#content');
+				
+				txt.keyup(function(){
+					content.empty();
+					var val = txt.val();
+					if(val==''){
+						return;
+					}
+					$.each(arr, function(index,value) {
+						if(value.indexOf(val)!=-1){
+							var lis = $('<li>'+value+'</li>')
+							content.append(lis)
+						}
+					});
+				});
+				
+				//给ul添加时间委托，监听下面所有LI
+				content.on('click','li',function(){
+					var v = $(this).html();
+					txt.val(v);
+					content.empty()
+				});
+				
+				
+				
+				
+			});
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		<p>['table','td','time','th','area','title','apple']</p>
+		<div class="box">
+			<input type="text" class="txt" id="txt" />
+			<ul class="content" id="content"></ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+ul{list-style: none;}
+.main{width: 1226px;height: 420px;position: relative;top: 0;left: 50%;margin-left: -613px;}
+.main_lb{position: relative;height: 460px;width: 1226px;}
+.lbk li{position: absolute;display: none;}
+.lbk li:nth-child(1){display: block;}
+.btn_l{z-index: 10;position: absolute;left: 40px;top: 196px;
+	height: 70px;width: 40px;
+	background: url(../img/lunbo/btn_l.png) no-repeat 2px 10px;
+	border-radius: 0 2px 2px 0;
+	background-color: rgba(0,0,0,0);
+	transition: 0.4s;
+}
+.btn_r{
+	z-index: 10;
+	position: absolute;
+	right: -40px;top: 196px;
+	height: 70px;width: 40px;
+	background: url(../img/lunbo/btn_r.png) no-repeat 2px 10px;
+	border-radius: 2px 0 0 2px;
+	background-color: rgba(0,0,0,0);
+	transition: 0.4s;
+}
+.btn_r:hover{background-color: rgba(0,0,0,0.5);cursor: pointer;}
+.btn_l:hover{background-color: rgba(0,0,0,0.5);cursor: pointer;}
+.btn_lis{list-style: none;position: absolute;right: 35px;top: 425px;z-index: 11;}
+.btn_lis li{
+	float: left;
+	height: 6px;width: 6px;
+	border: 2px solid #acacac;
+	border-radius: 8px;
+	background: #666;
+	margin-right: 10px;
+	opacity: 0.6;
+	cursor: pointer;
+}
+.btn_ls{background: #F5EBE0!important;border: 2px solid #666;}

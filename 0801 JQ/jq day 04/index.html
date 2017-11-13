@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#but{
+				width: 120px;
+				height: 35px;
+				font-size: 18px;
+			}
+			.box{
+				width: 500px;
+				height: 500px;
+				background-color: burlywood;
+			}
+			.box2{
+				width: 200px;
+				height: 200px;
+				background-color: cornflowerblue;
+				margin: auto;
+			}
+			#txt{
+				width: 240px;
+				height: 30px;
+				margin-top: 30px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var btn = $('#btn');
+				var box = $('.box');
+				var txt = $('#txt');
+				
+				//JQ事件
+				//1.单击事件 click();
+				//原生JS中同一个对象绑定相同的事件，后面的会覆盖前面的事件；
+				/*btn[0].onclick=function(){
+					alert('a')
+				}
+				
+				btn[0].onclick=function(){
+					alert('b')
+				}*/
+				//jq对象和dom对象是可以相互转换的
+				//jq对象转换成dom对象
+				//方法一：$('#btn')[0];
+				//方法二：$('#btn').get(0);
+				
+				//jq中同一个对象绑定相同的事件，不会被覆盖，多个事件融合在一起
+				/*$(document).click(function(){
+					alert('document');
+				});
+				btn.click(function(){
+					alert('a')
+				});
+				btn.click(function(){
+					event.stopPropagation();//阻止冒泡
+					alert('b');
+				});
+				btn.click(function(){
+					alert('a');
+					event.stopPropagation();
+					alert('b')
+				});*/
+				
+				//事件绑定数据
+				//并不是局部变量
+				/*btn.click(foo="abc",function(){
+					alert(foo)
+				});
+				box.click(function(){
+					alert(foo)
+				});*/
+				
+				/*box.mouseenter(function(){
+					console.log('我进来了')
+				});
+				box.mouseleave(function(){
+					console.log('我出来了')
+				});
+				*/
+				//hover()事件：相当于整合了enter+leave事件
+				/*box.hover(function(){
+					console.log('我进来啦')
+				},function(){
+					console.log('我出来啦')
+				});*/
+				//键盘按下事件
+				/*$(document).keydown(function(event){
+					console.log(event.keyCode)
+				});*/
+				//窗口大小改变事件
+				/*$(window).resize(function(){
+					alert('s')
+				});*/
+				//页面滚动事件
+				/*$(window).scroll(function(){
+					alert('s')
+				})*/
+				//文本选中事件
+				/*txt.select(function(){
+					console.log('xiaoming');
+				});*/
+				
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">button</button>
+		<div class="box">
+			<div class="box2">
+				
+			</div>
+		</div>
+		<input id="txt" type="text" />
+
+	</body>
+</html>

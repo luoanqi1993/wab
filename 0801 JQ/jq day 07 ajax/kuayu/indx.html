@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.show{
+				height: 200px;
+				width: 200px;
+				border: 1px solid red;
+			}
+		</style>
+		<script type="text/javascript" src="../jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button').click(function(){
+					$.ajax({
+						type:"get",
+						url:"http://wthrcdn.etouch.cn/weather_mini?citykey=101010100",
+						success:function(data){
+							$('.show').html(data);
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="show"></div>
+		<button>获取</button>
+	</body>
+</html>

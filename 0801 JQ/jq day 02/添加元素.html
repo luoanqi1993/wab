@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 200px;
+				width: 200px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		$('.box').click(function(){
+			var div = "<div>我是一个div</div>";
+			$('.box').append(div)
+			//添加子节点：demo.append(想要添加的元素)
+		});
+	</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				display: block;
+			}
+			.box{
+				width: 350px;
+				height: 350px;
+				border: 1px solid #aaa;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+			.big{
+				width: 450px;
+				height: 450px;
+				position: absolute;
+				left: 500px;
+				top: 100px;
+				border: 1px solid #aaa;
+				overflow: hidden;
+			}
+			.mask{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: rgba(255,0,0,0.4);
+				cursor: move;
+			}
+			.big>img{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var box = $('#box'),mask = $('#mask'),big = $('#big'),bp = $('#bigPic');
+				//第二步，鼠标在小盒子里面移动
+				box.mousemove(function(e){
+					//计算红快的位置；
+					mask.offset({
+						left:e.clientX-mask.width()/2,
+						top:e.clientY-mask.height()/2
+					});
+					//限制红快的范围
+					if(mask.position().left<=0){
+						mask.css('left',0);
+					}
+					if(mask.position().left>=(box.width()-mask.width())){
+						mask.css('left',box.width()-mask.width());
+					}
+					if(mask.position().top<=0){
+						mask.css('top',0);
+					}
+					if(mask.position().top>=(box.height()-mask.height())){
+						mask.css('top',box.height()-mask.height());
+					}
+					
+					//计算大图的运动方式
+					//计算大图和小图之间的比值
+					var rete = -(bp.width()-big.width())/(box.width()-mask.width())
+					console.log(rete);
+					bp.css({
+						left:mask.position().left*rete,
+						top:mask.position().top*rete
+					})
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<img src="img/001.jpg"/>
+			<div class="mask" id="mask"></div>
+		</div>
+		<div class="big" id="big">
+			<img id="bigPic" src="img/0001.jpg"/>
+		</div>
+	</body>
+</html>

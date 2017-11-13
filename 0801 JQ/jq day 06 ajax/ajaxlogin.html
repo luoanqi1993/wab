@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="showInfo"></div>
+		<form id="form">
+			<input type="text" id="user" />
+			<!--后台接收的变量名字是啥，就是你的name啊，所以name要和后台对应-->
+			<input type="password" id="pass" />
+			<input type="button" id="btn" value="登录" />
+		</form>
+	</body>
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn = document.getElementById('btn');
+			var show = document.getElementById("showInfo");
+			btn.onclick=function(){
+				var username = document.getElementById('user').value;
+				var password = document.getElementById('pass').value;
+				
+				/*现在开始我们的ajax*/
+				/*ajax 不是一门语言，也不是一个插件，就是一个方法，一个技术*/
+				/*第一步：创建对象*/
+				var xhr = null;
+				if(window.XMLHttpRequest){
+					/*浏览器通过XMLHttpRequest方法创建ajax对象，不过IE5和6不支持*/
+					/*核心XMLHttpRequest*/
+					xhr = new XMLHttpRequest();//实例化一个ajax对象
+				}else{
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				/*初始化准备好了*/
+				/*接着写ajax需要的东西*/
+				var url = 'click.php?un='+username+'&pd='+password;
+				xhr.open('post',url,false);//这一步，就是已经是发送请求了
+				/*open方法声明传输，三个删除，第一个：请求方式；第二个：请求路径；第三个：加载方式（同步、异步,默认，通常，都给我写true）*/
+				//send()用来给后台传参用的，但是一般ajax传的参数很少，所以都直接放在url后面；
+				//这段代码在请求结束后执行，
+				//代表着你请求后要执行的内容
+				xhr.onreadystatechange=function(){//这一步，其实是请求的结果
+					if(xhr.readyState==4&&xhr.status==200){
+						//status==200表示请求成功
+						//404表示没有找到页面或者数据
+						console.log('服务器处理数据完成，并且响应了数据');
+						var data = JSON.parse(xhr.responseText);
+						console.log(data)
+						show.innerHTML=data[0][1];
+					}
+				}
+				xhr.send();
+			}
+		}
+	</script>
+	
+	
+	
+</html>

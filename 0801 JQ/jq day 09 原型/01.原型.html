@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			function Xs(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			Xs.prototype.type = "学生";
+			Xs.prototype.shool = function(){
+				alert("我要上学");
+			}
+			var mmm = new Xs("某某某",18);
+			var hhh = new Xs("呵呵呵",19)
+			console.log(mmm.shool==hhh.shool);
+			mmm.shool();
+		}
+	</script>
+</html>

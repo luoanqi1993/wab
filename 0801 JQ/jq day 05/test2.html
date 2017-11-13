@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		*{margin: 0;padding: 0}
+		ul,li,ol{list-style: none;}
+		#box{width: 1080px;height:440px;background: #ccc;margin: 100px auto;padding-top:50px;}
+		#uls{width: 62px;height: 370px;margin-left: 50px;float: left;background: #fff;}
+		#uls li{width: 62px;height: 30px;line-height: 30px;text-align: center;border-bottom: 1px #666 solid;position: relative;}
+		span{width: 0;height: 0;border: 10px transparent solid;border-left-color:blue;position: absolute;top: 5px;right: -20px;display: none;}
+		#Bbox{width: 700px;height: 400px;overflow: hidden;float: right;position: relative;}
+		#zhou{width: 700px;position: absolute;top: 0;left: 0;}
+		.time{width: 700px;}
+		.time p{width: 700px;height: 40px;line-height: 40px}
+		.time p b{margin-right: 30px}
+		.blue{background: blue;color: #FFFFFF;}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			var lis = $('#uls li');
+			lis.click(function(){
+				$(this).addClass('blue').siblings().removeClass('blue');
+				$(this).children().show();
+				$(this).siblings().children().hide();
+				var index = $(this).index();//左边导航的索引值
+				var t = $('.time').eq(index).position().top;
+				$('#zhou').stop().animate({
+					top:-t
+				},1000)
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul id="uls">
+			<li>2013<span></span></li>
+			<li>2012<span></span></li>
+			<li>2011<span></span></li>
+			<li>2010<span></span></li>
+			<li>2009<span></span></li>
+			<li>2008<span></span></li>
+			<li>2007<span></span></li>
+			<li>2006<span></span></li>
+			<li>2005<span></span></li>
+			<li>2004<span></span></li>
+			<li>2003<span></span></li>
+			<li>2002<span></span></li>
+		</ul>
+		<div id="Bbox">
+			<div id="zhou">
+				<div class="time">
+					<h1>2013年</h1>
+					<p><b>1月8日</b>站长统计是输超过十万</p>
+					<p><b>5月26日</b>推出一个小工具</p>
+					<p><b>8月13日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>9月15日</b>站长统计是输超过十万</p>
+					<p><b>11月9日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>12月14日</b>站长统计是输超过十万</p>
+				</div>
+				<div class="time">
+					<h1>2012年</h1>				
+					<p><b>7月22日</b>站长统计是输超过十万</p>
+					<p><b>8月19日</b>站长统计是输超过十万</p>
+					<p><b>9月8日</b>推出一个小工具</p>
+					<p><b>10月3日</b>站长统计是输超过十万</p>
+					<p><b>11月9日</b>站长统计是输超过十万</p>
+					<p><b>12月16日</b>宣布与BBSmax结成战略合作伙伴</p>
+				</div>
+				<div class="time">
+					<h1>2011年</h1>
+					<p><b>1月2日</b>站长统计是输超过十万</p>
+					<p><b>2月8日</b>推出一个小工具</p>
+					<p><b>5月3日</b>站长统计是输超过十万</p>
+					<p><b>6月30日</b>宣布与BBSmax结成战略合作伙伴</p>					
+					<p><b>9月8日</b>站长统计是输超过十万</p>
+					<p><b>11月9日</b>站长统计是输超过十万</p>
+					<p><b>12月16日</b>推出一个小工具</p>
+				</div>
+				<div class="time">
+					<h1>2010年</h1>
+					<p><b>1月2日</b>站长统计是输超过十万</p>
+					<p><b>2月8日</b>站长统计是输超过十万</p>
+					<p><b>5月3日</b>推出一个小工具</p>
+					<p><b>6月30日</b>站长统计是输超过十万</p>
+					<p><b>7月22日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>8月19日</b>站长统计是输超过十万</p>
+					<p><b>9月8日</b>推出一个小工具</p>
+					<p><b>11月9日</b>站长统计是输超过十万</p>
+					<p><b>12月16日</b>站长统计是输超过十万</p>
+				</div>
+				<div class="time">
+					<h1>2009年</h1>					
+					<p><b>6月30日</b>推出一个小工具</p>
+					<p><b>7月22日</b>站长统计是输超过十万</p>
+					<p><b>8月19日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>9月8日</b>站长统计是输超过十万</p>
+					<p><b>11月9日</b>站长统计是输超过十万</p>
+					<p><b>12月16日</b>推出一个小工具</p>
+				</div>
+				<div class="time">
+					<h1>2008年</h1>
+					<p><b>1月2日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>2月8日</b>推出一个小工具</p>
+					<p><b>6月30日</b>站长统计是输超过十万</p>
+					<p><b>7月22日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>8月19日</b>站长统计是输超过十万</p>
+					<p><b>9月8日</b>推出一个小工具</p>
+				</div>
+				<div class="time">
+					<h1>2007年</h1>
+					<p><b>1月2日</b>站长统计是输超过十万</p>
+					<p><b>2月8日</b>站长统计是输超过十万</p>
+					<p><b>5月3日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>6月30日</b>推出一个小工具</p>					
+				</div>
+				<div class="time">
+					<h1>2006年</h1>
+					<p><b>1月2日</b>推出一个小工具</p>
+					<p><b>2月8日</b>站长统计是输超过十万</p>
+					<p><b>5月3日</b>站长统计是输超过十万</p>
+					<p><b>6月30日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>7月22日</b>站长统计是输超过十万</p>
+					<p><b>8月19日</b>推出一个小工具</p>
+					<p><b>12月16日</b>宣布与BBSmax结成战略合作伙伴</p>
+				</div>
+				<div class="time">
+					<h1>2005年</h1>
+					<p><b>1月2日</b>推出一个小工具</p>
+					<p><b>2月8日</b>站长统计是输超过十万</p>
+					<p><b>5月3日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>6月30日</b>站长统计是输超过十万</p>
+					<p><b>11月9日</b>站长统计是输超过十万</p>
+					<p><b>12月16日</b>站长统计是输超过十万</p>
+				</div>
+				<div class="time">
+					<h1>2004年</h1>
+					<p><b>1月2日</b>推出一个小工具</p>
+					<p><b>2月8日</b>站长统计是输超过十万</p>
+					<p><b>5月3日</b>站长统计是输超过十万</p>
+					<p><b>6月30日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>9月8日</b>站长统计是输超过十万</p>
+					<p><b>11月9日</b>推出一个小工具</p>
+					<p><b>12月16日</b>宣布与BBSmax结成战略合作伙伴</p>
+				</div>
+				<div class="time">
+					<h1>2003年</h1>
+					<p><b>1月2日</b>站长统计是输超过十万</p>
+					<p><b>2月8日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>5月3日</b>推出一个小工具</p>
+					<p><b>6月30日</b>站长统计是输超过十万</p>
+					<p><b>7月22日</b>站长统计是输超过十万</p>
+					<p><b>8月19日</b>宣布与BBSmax结成战略合作伙伴</p>
+				</div>
+				<div class="time">
+					<h1>2002年</h1>
+					<p><b>1月2日</b>站长统计是输超过十万</p>					
+					<p><b>6月30日</b>推出一个小工具</p>
+					<p><b>7月22日</b>站长统计是输超过十万</p>
+					<p><b>8月19日</b>宣布与BBSmax结成战略合作伙伴</p>
+					<p><b>12月16日</b>推出一个小工具</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

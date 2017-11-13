@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.mian{
+				height: 1000px;
+				width: 1000px;
+				border: 1px solid red;
+				position: relative;
+				top: 100px;
+				left: 100px;
+				
+			}
+			#box{
+				height: 200px;
+				width: 200px;
+				background: red;
+				position: absolute;
+				left: 500px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mian">
+			<div id="box">
+			
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		//获取与设置位置
+		//offset 位置是相对于页面来定位的
+		//哪怕元素基于父元素定位，offset穿回来的值还是基于网页的
+		/*var box=$('#box');
+		alert('left:'+box.offset().left+",top:"+box.offset().top);*/
+		/*$('.mian').click(function(){
+			//$('#box').offset().left='100px';错误的写法
+			$('#box').offset({//正确写法
+				left:100,
+				top:50
+			});
+		});*/
+		/*var box=$('#box');
+		//offset只能获取距离网页的位置
+		//那么当我们根据父级定位的时候，获取距离父级的位置，则用：position；
+		//注意，position是只读，不可修改；
+		alert('left:'+box.offset().left+",top:"+box.offset().top);
+		alert('left:'+box.position().left+",top:"+box.position().top);*/
+		
+		//获取页面卷入高度：
+		window.onscroll=function(){
+			console.log($(document).scrollTop())
+		}
+	</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 800px;
+				height: 50px;
+				border: 1px solid #aaa;
+				position: relative;
+				margin: 100px auto;
+			}
+			.slider{
+				width: 100px;
+				height: 50px;
+				background: darkgreen;
+				position: absolute;
+				left: 0;
+				top: 0;
+				cursor: pointer;
+				z-index: 10;
+			}
+			.sp{
+				width: 100%;
+				position: absolute;
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+				z-index: 5;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var box = $('#box');
+				var slider = $('#slider');
+				var sp = $('#sp');
+				
+				slider.mousedown(function(e){
+					//获取鼠标点击的位置与滑块左侧的相对距离
+					var dx = e.clientX - box.offset().left;
+					var dsx = e.clientX;
+					//鼠标在滑块上面移动的事件
+					box.mousemove(function(e){
+						var sliderLeft = e.clientX - dsx;
+						slider.css('left',sliderLeft);
+						if(slider.position().left>=700){
+							slider.css('left','700px');
+						}
+						if(slider.position().left<=0){
+							slider.css('left','0px');
+						}
+					});
+				});
+				
+				slider.mouseup(function(){
+					box.off('mousemove');
+					if(slider.position().left==700){
+						slider.css('display','none');
+						sp.css('display','block');
+					}
+					if(slider.position().left<700){
+						slider.css('left',0);
+					}
+				});
+				
+				slider.mouseout(function(){
+					slider.mouseup()
+				});
+				
+				
+				
+			});
+		</script>
+		
+		
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div class="slider" id='slider'></div>
+			<span class="sp" id="sp">解锁成功</span>
+		</div>
+	</body>
+</html>

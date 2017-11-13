@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				margin: 20px;
+				float: left;
+			}
+			#d1{	
+				background: red;
+			}
+			#d2{	
+				background: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<div id="d2"></div>
+
+	</body>
+	<script type="text/javascript">
+		function gw(){}
+		gw.prototype.sm=10;
+		gw.prototype.fy=8;
+		gw.prototype.gs=1;
+		gw.prototype.ys=5;
+		
+		
+		xiaoguai.prototype = new gw();
+		xiaoguai.prototype.constructor = xiaoguai;
+		
+		function xiaoguai(name){
+			this.name = name;
+		}
+		var xg1 = new xiaoguai('金角');
+		var xg2 = new xiaoguai('银角');
+
+		var div = document.getElementsByTagName('div')[0];
+		div.onclick=function(){
+			sm--;
+			fy--;
+			gs++;
+			ys++;
+		}
+		
+		/*function godai(){
+			if(sm==0){
+				alert('怪物死了')
+			}
+		}
+		function pojia(){
+			if(fy==0){
+				alert('怪物破防了，快输出');
+			}
+		}
+		function kongzhi(){
+			if(ys>10){
+				alert('赶紧控制啊');
+			}
+		}
+		function taoming(){
+			if(gs>20){
+				alert('怪物狂暴了，快跑啊');
+			}
+		}*/
+	</script>
+</html>

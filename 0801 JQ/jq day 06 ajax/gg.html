@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1">大闸蟹</button><button id="btn2">iPoneX</button>
+		<h1 id="title"></h1>
+		<div id="des"></div>
+		<div id="pri"></div>
+	</body>
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			function $(id){return document.getElementById(id)}
+			var sp_title = $('title');
+			var sp_des = $('des');
+			var sp_pri = $('pri');
+			var btn1 = $('btn1');
+			var btn2 = $('btn2');
+			var gg = null;
+			var data = null;
+			function Person(data,num){
+				var obj = {};
+				obj.title = data[num][0];
+				obj.des = data[num][1];
+				obj.pri = data[num][2];
+				return obj;
+			}
+			if(window.XMLHttpRequest){
+				gg = new XMLHttpRequest();
+			}else{
+				gg = new ActiveXObject('Microsoft.XMLHTTP');
+			}
+			gg.open('POST','click.php',false);
+			gg.send();
+			if(gg.readyState==4&&gg.status==200){
+				data=JSON.parse(gg.responseText);
+			}
+			btn1.onclick=function(){
+				var dzx = new Person(data,0);
+				sp_title.innerHTML = dzx.title;
+				sp_des.innerHTML = dzx.des;
+				sp_pri.innerHTML = dzx.pri;
+			}
+			btn2.onclick=function(){
+				var ipx = new Person(data,1);
+				sp_title.innerHTML = ipx.title;
+				sp_des.innerHTML = ipx.des;
+				sp_pri.innerHTML = ipx.pri;
+			}
+			
+		}
+	</script>	
+	
+	
+	
+</html>

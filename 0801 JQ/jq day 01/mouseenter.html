@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.p{
+				width: 10px;
+				height: 4000px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<p>mouseover/mouseout鼠标移动到某个元素上，会被触发多次</p>
+		<p>mouseenter进入只会触发一次</p>
+		<div class="over" style="background: aqua;padding: 20px;width: 40%;float: left;">
+			<h3 style="background: white;">被触发的mouseover事件<span></span></h3>
+		</div>
+		<div class="enter" style="background: aqua;padding: 20px;width: 40%;float: right;">
+			<h3 style="background: white;">被触发的mouseenter事件<span></span></h3>
+		</div>
+		<div class="p">
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var x=0;
+		var y=0;
+		$(function(){
+			$('.over').mouseover(function(){
+				$('.over span').text(x+=1);//$(.demo).text(...)==div.innerHTML=...
+			});
+			$('.enter').mouseenter(function(){
+				$('.enter span').text(y+=1);
+			});
+		});
+	</script>
+</html>

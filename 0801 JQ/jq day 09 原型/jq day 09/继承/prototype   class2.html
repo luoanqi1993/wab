@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			function Xs(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			
+			/*type是属性，相当于上面的name、age*/
+			Xs.prototype.type = '学生';//这一条，给构造函数继承了一个属性，通过prototype指向构造函数，给他一个type属性，属性值为‘学生’；
+			Xs.prototype.shcool = function(){alert('我要去上学')}
+			
+			var wzq = new Xs('吴泽权',18);
+			var wmz = new Xs('王明总',19);
+			console.log(wmz.shcool==wzq.shcool)
+			
+			
+			
+		}
+	</script>
+</html>

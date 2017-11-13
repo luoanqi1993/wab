@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				font-size: 25px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var btn = $('button');
+				var lis = $('.uls li');
+				//过滤
+				//1.eq();查找JQ对象中的指定索引对象；
+				//eq(i)通过索引值找到对象，和arr[i]意思一样，只不过是jq的方法而已
+				//lis[2].css('color','red')这个是dom节点，不适用jq方法
+				/*lis.eq(2).css('color','red')
+				console.log(lis[2])
+				console.log(lis.eq(2))*/
+				
+				//2.first()查找第一个
+				//lis.first().css('color','red');
+				
+				//3.last()查找最后一个
+				//lis.last().css('color','aqua')
+				
+				//4.hasClass，判断一个JQ对象中是否具有指定的class,只要集合中有一个对象包含指定class，就返回true\
+				//要注意，它返回的查找的对象，而是true布尔值
+				//console.log(lis.hasClass('lis-3'));
+				
+				
+				//5.is()判断当前jq对象是否是指定的类型、选择器
+				/*console.log(lis.eq(2).is('li'))//判断当前jq对象是不是li
+				console.log(lis.eq(2).is(lis))//判断是否是lis里面的
+				console.log(lis.eq(2).is(':nth-of-type(3)'));//判断是否是当前集合的第三个元素*/
+				
+				//6.map()给jq中的每一个对象一个函数，参数只能是函数
+				/*btn.click(function(){
+					lis.map(function(){
+						console.log($(this).index())
+					})
+				});*/
+				
+				//7.has()选择子元素有指定的选择器或者标签的元素
+				$('li').has('[class]').css('color','red');
+				//$('li').has('p').css('color','red');
+				
+				//8.not()反选
+				/*var lisn = lis.not('[class]').css('color','red')
+				console.log(lisn)*/
+				
+				//9.slice()根据范围选择
+				//lis.slice(2).css('color','red');从2开始截取，2后面的都被选中
+				//lis.slice(2,5).css('color','red');截取2-5之间的元素
+				lis.slice(-5,-2).css('color','red')
+				
+				
+				
+				
+				
+				
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul class="uls" style="position: relative;">
+			<li>1</li>
+			<li>2</li>
+			<li class="lis-3">3</li>
+			<div>div</div>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li class="lis-9" style="position: relative;">9
+				<p class="p">这是li内部p标签</p>
+				<p class="p">这是li内部p标签</p>
+				<h4>这是li内部h4标签</h4>
+				<h4>这是li内部h4标签</h4>
+				<i>这是li内部i标签</i>
+				<i>这是li内部i标签</i>
+			</li>
+			<li>10
+				<h4>这是li内部h4标签</h4>
+				<h4>这是li内部h4标签</h4>
+				<ul>
+					<li>
+						<p class="p">这是一个p标签</p>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d
+				<h4>这是li内部h4标签</h4>
+				<h4>这是li内部h4标签</h4>
+			</li>
+		</ul>
+		<div>
+			<p>这是一个p标签</p>
+		</div>
+		<button id="button">button</button>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var xs = {type:'学生'};
+		/*var dxs = {cl:'大四'};*/
+		/*这两个是普通对象，无法使用构造函数*/
+		/*第一个object()方法*/
+		function object(o){
+			function F(){};
+			F.prototype = o;
+			return new F();
+		}
+		//在这个object函数里面，就是把子对象的prototype属性，指向父对象，从而使父对象和子对象连接在了一起
+		
+		//第一部，在父对象的基础上生成子对象
+		var dxs = object(xs);
+		dxs.cl='大四';
+		console.log(dxs)
+		
+	</script>
+</html>

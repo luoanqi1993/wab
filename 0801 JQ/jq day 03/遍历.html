@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>button</button>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		//$.each();作用：遍历数组，类数组，对象，相当于javascript里面的for循环；
+		//$.each(想要遍历的对象，function(索引，值){操作})；
+		var arr=[1,2,3,4,5,6,7,8,9,'a','s','d','f'];
+		var obj={
+			'ipone8':7000,
+			'iponeX':8899,
+			'苹果':4
+		}
+		//for遍历
+		/*for(var i = 0; i<arr.length; i++){
+			console.log(arr[i])
+		}
+		
+		for(var i in obj){
+			console.log(i)
+			console.log(obj[i])
+		}*/
+		
+		//jq方法
+		/*$.each(arr,function(i,v){
+			console.log(i,v)
+		});*/
+		
+		$.each(obj, function(key,value) {
+			console.log(key,value)
+		});
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				width: 260px;
+				height: 36px;
+				margin: 20px 0 0;
+				padding: 0 10px;
+				font-size: 22px;
+			}
+			button{
+				width: 160px;
+				height: 40px;
+				font-size: 22px;
+			}
+		</style>
+		<script src="jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button').click(function(){
+					var txt = $('#inp').val();
+					$.ajax({
+						type:"post",
+						url:"php/post.php",
+						data:{name:txt},
+						success:function(dd){
+							alert(dd);
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input id="inp" type="text" />
+		<button>ajax</button>
+	</body>
+</html>

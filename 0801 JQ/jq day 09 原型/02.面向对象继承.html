@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+//			function Xs(){
+//				this.type = "学生";
+//			}
+//			function Dxs(name,age){
+//				this.name = name;
+//				this.age = age;				
+//			}
+			
+			//第一种方法
+			/*function Xs(){
+				this.type = "学生";
+			}
+			function Dxs(name,age){
+				Xs.apply(this,arguments);
+				this.name = name;
+				this.age = age;				
+			}
+			
+			var mmm = new Dxs("某某某",18);
+			console.log(mmm.type);*/
+			
+			//第二种方法
+			function Xs(){
+				this.type = "学生";
+			}
+			function Dxs(name,age){
+				this.name = name;
+				this.age = age;				
+			}
+			
+			Dxs.prototype = new Xs();
+			Dxs.prototype.constructor = Dxs();
+			
+			
+			var mmm = new Dxs("某某某",18);
+			console.log(mmm.type);
+			
+			
+			//第三种方法
+			/*function Xs(){}
+			Xs.prototype.type = "学生";
+			
+			function Dxs(name,age){
+				this.name = name;
+				this.age = age;				
+			}
+			
+			Dxs.prototype = Xs.prototype;
+			Dxs.prototype.constructor = Dxs;
+			
+			Dxs.prototype.type = "大学生";
+			var mmm = new Dxs("某某某",18);
+			console.log(Xs.prototype.type);*/
+			/*优点：效率比较高，不用创建Xs的实例对象，比较省内存*/
+			/*缺点：Dxs.prototype和Xs的prototype现在指向了同一个对象了*/
+			
+			//第四种方法		
+			//var Kong = function(){};
+			//Kong.prototype = Xs.prototype;
+			
+			/*function Xs(){}
+			Xs.prototype.type = "学生";
+			
+			function Dxs(name,age){
+				this.name = name;
+				this.age = age;				
+			}
+			
+			//Dxs.prototype = new Kong();
+			//Dxs.prototype.constructor = Dxs;
+
+			function extend(Child,Parent){
+				var Kong = function(){};
+				Kong.prototype = Xs.prototype;
+				Child.prototype = new Kong();
+				Child.prototype.constructor = Child;
+				
+				Child.end = Child.prototype;
+				//意思，为子对象设置一个end属性，这个属性指向父对象的prototype属性，end(自定义属性)是“向上”、“上一层”的意思
+				//这个就相当于给子对象开了一条路，可以直接调用父对象方法，在这里只是为了实现继承的完整性，属于备用性质，
+				//因为子对象继承的是空对象，所以要通过这行代码才能调用得到父对象；
+				
+			}
+			
+			extend(Dxs,Xs);
+			var mmm = new Dxs("某某某",18);
+			console.log(mmm.type);*/
+			
+			
+			//第五种方法
+			/*function extend(Child,Parent){
+			var p = Parent.prototype;
+			var c = Child.prototype;
+			for(var i in p){
+				c[i]=p[i];
+			}
+				c.uber = p;
+			}
+			
+			function Xs(){}
+			Xs.prototype.type = '学生';
+			
+			function Dxs(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			
+			extend(Dxs,Xs);
+			var wzq = new Dxs('吴泽权',18)
+			alert(wzq.type);*/
+			
+		}
+	</script>
+</html>

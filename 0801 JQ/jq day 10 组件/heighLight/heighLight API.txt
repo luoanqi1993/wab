@@ -1,0 +1,15 @@
+格式化方法：
+$.fn.heighLight.format=function(str){
+			return "自定义标签"+str+"自定义标签"
+}
+列入：
+$.fn.heighLight.format=function(str){
+  return "<a>"+str+"</a>"
+}
+
+
+调用方法：
+obj.heighLight({background:"自定义参数",forground:'自定义参数'})；
+
+例如：
+$('p').heighLight({background:"cyan",forground:'#ccc'});

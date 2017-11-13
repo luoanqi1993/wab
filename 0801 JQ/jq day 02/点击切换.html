@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.nav{
+				width: 800px;
+				margin: 0 auto;
+			}
+			ul{
+				width: 800px;
+				list-style: none;
+			}
+			.dj li{
+				float: left;
+				width: 198px;
+				height: 30px;
+				text-align: center;
+				border: 1px solid #000;
+				cursor: pointer;
+				line-height: 30px;
+				background: #efefef;
+			}
+			.tp li{
+				display: none;
+			}
+			.a{
+				display: block!important;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var title = $('.li');
+				var con = $('.t');
+				title.click(function(){
+					//直接this是指向dom节点，jq对象是获取不到的，jq对象要用jq方法指向
+					var index = $(this).index();
+					$('.t').eq(index).addClass('a').siblings('li').removeClass('a');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="nav">
+			<ul class="dj">
+				<li class="li">第一栏</li>
+				<li class="li">第二栏</li>
+				<li class="li">第三栏</li>
+				<li class="li">第四栏</li>
+			</ul>
+			<ul class="tp">
+				<li class="t a"><img src="img/slidepic1.jpg"/></li>
+				<li class="t"><img src="img/slidepic2.jpg"/></li>
+				<li class="t"><img src="img/slidepic3.jpg"/></li>
+				<li class="t"><img src="img/slidepic4.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+	
+</html>

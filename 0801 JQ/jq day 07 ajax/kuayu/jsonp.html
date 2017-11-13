@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.main{
+				width: 800px;
+				text-align: center;
+				margin: 0 auto;
+			}
+		</style>
+		<script type="text/javascript" src="../jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript">
+			function abc(data){
+				console.log(data)
+				var d = data.weather;
+				for(var i = 0;i < d.length;i ++){
+					var date = d[i].date;
+					var day = d[i].info.day;
+					var night = d[i].info.night;
+					var tag='';
+					tag+='<span>日期：'+date+'</span><ul>';
+					tag+='<li>白天天气：'+day[1]+'</li>';
+					tag+='<li>白天温度：'+day[2]+'</li>';
+					tag+='<li>白天风向：'+day[3]+'</li>';
+					tag+='<li>白天风速：'+day[4]+'</li>';
+					tag+='</ul>';
+					console.log(tag)
+					$('#nr').html(tag)
+				}
+			}
+			
+			
+			$(function(){
+				var ct = $('#city');
+				var nr = $('#nr');
+				ct.change(function(){
+					nr.html('');
+				});
+				$('#btn').click(function(){
+					var code = ct.val();
+					var url = 'http://cdn.weather.hao.360.cn/api_weather_info.php?app=hao360&code='+code+'&_jsonp=abc';
+					var script = document.createElement('script');
+					script.src=url;
+					document.body.appendChild(script);
+				});
+			});
+		</script>
+		</head>
+	<body>
+		<div class="main">
+			<button id="btn">获取</button>
+			<select id="city">
+				<option value="101010100">北京</option>
+				<option value="101020100">上海</option>
+				<option value="101280101">广州</option>
+				<option value="101280601">深圳</option>
+			</select>
+			<div id="nr">
+				
+			</div>
+		</div>
+	</body>
+</html>
